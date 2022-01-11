@@ -8,11 +8,11 @@ import java.util.Date;
 
 @Data
 public class BeneficiaireDTO {
-    private Long id;
+    protected Long id;
 
-    private TITRE titre;
-    private String prenom;
-    private String nom;
-    private PAYS pays;
+    protected TITRE titre;
+    protected String prenom;
+    protected String nom;
+    protected PAYS pays;
 
 }

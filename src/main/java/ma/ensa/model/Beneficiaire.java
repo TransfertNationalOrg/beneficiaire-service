@@ -15,11 +15,11 @@ import java.util.Set;
 public class Beneficiaire {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    protected Long id;
 
-    private TITRE titre;
-    private String prenom;
-    private String nom;
-    private PAYS pays;
+    protected TITRE titre;
+    protected String prenom;
+    protected String nom;
+    protected PAYS pays;
 
 }
