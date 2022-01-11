@@ -5,6 +5,7 @@ import ma.ensa.Transfert.TransfertDTO;
 import ma.ensa.Transfert.TransfertFeign;
 import ma.ensa.converter.BeneficiaireConverter;
 import ma.ensa.dto.BeneficiaireDTO;
+import ma.ensa.repository.BeneficiaireRepository;
 import ma.ensa.service.BeneficiaireService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,8 @@ public class BeneficiaireController {
     final BeneficiaireService beneficiaireService;
     final BeneficiaireConverter beneficiaireConverter;
     final TransfertFeign transfertFeign;
+
+    final BeneficiaireRepository beneficiaireRepository;
 
     @PostMapping("/")
     public ResponseEntity<?> save(@RequestBody BeneficiaireDTO beneficiaireDTO) throws Exception {
@@ -53,5 +56,11 @@ public class BeneficiaireController {
     @GetMapping("/allTransferts/idBeneficiaire")
     public List<TransfertDTO> getAllTransfertsByBeneficiaire(@PathVariable("idBeneficiaire") Long idBeneficiaire){
         return transfertFeign.getTransfertsBybeneficiaire(idBeneficiaire);
+    }
+
+    //Get beneficiaire by id
+    @GetMapping("{id}")
+    public BeneficiaireDTO getBeneficiaireById(@PathVariable("id") Long id){
+        return beneficiaireConverter.convertToDTO(beneficiaireRepository.getById(id));
     }
 }
