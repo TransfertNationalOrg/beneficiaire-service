@@ -17,9 +17,9 @@ import java.util.List;
 @RequestMapping("beneficiaire")
 @Data
 public class BeneficiaireController {
-    final BeneficiaireService beneficiaireService;
-    final BeneficiaireConverter beneficiaireConverter;
-    final TransfertFeign transfertFeign;
+    private final BeneficiaireService beneficiaireService;
+    private final BeneficiaireConverter beneficiaireConverter;
+    private final TransfertFeign transfertFeign;
 
     final BeneficiaireRepository beneficiaireRepository;
 
